@@ -1,6 +1,7 @@
 import { MenuWrapper } from './styles/MenuWrapper';
 import { Logo } from '../../../theme/Logo';
 import { Button } from '../Button';
+import { Text } from '../../foundation/Text';
 
 const links = [
   {
@@ -29,7 +30,13 @@ const Menu = () => {
           const linkId = `link_${id}`
           return (
             <li key={linkId}>
-              <a href={link.url}>{link.texto}</a>
+              <Text
+                tag="a"
+                variant="smallestException"
+                href={link.url}
+              >
+                {link.texto}
+              </Text>
             </li>
           )
         })}

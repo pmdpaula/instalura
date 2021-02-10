@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import get from 'lodash/get';
+import { TextStyleVariants } from '../../foundation/Text';
 
 const ButtonGhost = css`
   color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
@@ -17,6 +18,8 @@ export const Button = styled.button`
   padding: 12px 26px;
   font-weight: bold;
   opacity: 1;
+
+  ${TextStyleVariants.smallestException}
 
   transition: opacity ${({ theme }) => theme.transition};
   border-radius: ${({ theme }) => theme.borderRadius};
