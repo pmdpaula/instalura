@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "with-styled-components",
   "version": "1.0.0",
@@ -20,3 +21,28 @@
   },
   "license": "MIT"
 }
+=======
+{
+  "name": "with-styled-components",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20",
+    "next": "latest",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-is": "^16.8.0",
+    "styled-components": "^5.0.0",
+    "styled-normalize": "^8.0.7"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0"
+  },
+  "license": "MIT"
+}
+>>>>>>> 3c7bdaad8224dee9ae530cc36093b7c33656aa08
