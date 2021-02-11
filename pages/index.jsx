@@ -1,7 +1,7 @@
 import Footer from '../src/components/commons/Footer'
 import Menu from '../src/components/commons/Menu'
 import { Text } from '../src/components/foundation/Text'
-import { Button } from '../src/components/commons/Button/index';
+import { Button } from '../src/components/commons/Button/index'
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       display: 'flex',
       flexWrap: 'wrap',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      justifyContent: 'space-between'
     }}>
       <Menu />
 
@@ -21,19 +21,19 @@ const Home = () => {
           color="tertiary.main"
           textAlign={{
             xs: 'center',
-            md: 'left',
+            md: 'left'
           }}
         >
           Compartilhe momentos e conecte-se com amigos
         </Text>
-        
+
         <Text
           variant="paragraph1"
           tag="p"
           color="tertiary.light"
           textAlign={{
             xs: 'center',
-            md: 'left',
+            md: 'left'
           }}
         >
           Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Cevadis im ampola pa arma uma pindureta.
@@ -43,7 +43,7 @@ const Home = () => {
           variant="primary.main"
           margin={{
             xs: 'auto',
-            md: 'initial',
+            md: 'initial'
           }}
           display="block"
         >

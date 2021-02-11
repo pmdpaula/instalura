@@ -1,0 +1,42 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "standard",
+    // "plugin:@typescript-eslint/recommended", // TypeScript rules
+    "prettier/eslint", // Prettier plugin
+    "prettier/standard", // Prettier plugin
+    "prettier/react"
+    
+  ],
+  // "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "eslint",
+    "prettier"
+  ],
+  "rules": {
+    // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    
+    // We will use TypeScript's types for component props instead
+    "react/prop-types": "off",
+    
+    // No need to import React when using Next.js
+    "react/react-in-jsx-scope": "off",
+    
+    "prettier/prettier": ["error"],
+    "space-before-function-paren": "off"
+  }
+}
