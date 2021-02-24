@@ -1,22 +1,51 @@
+import { useState } from 'react'
+
+import { Button } from '../src/components/commons/Button'
 import Footer from '../src/components/commons/Footer'
 import Menu from '../src/components/commons/Menu'
-import { Text } from '../src/components/foundation/Text'
-import { Button } from '../src/components/commons/Button'
+import Modal from '../src/components/commons/Modal'
+import { Box } from '../src/components/foundation/layout/Box'
 import { Grid } from '../src/components/foundation/layout/Grid'
-import { Box } from '../src/components/foundation/layout/Box';
+import { Text } from '../src/components/foundation/Text'
 
 const Home = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <Box
       flex={1}
-      display='flex'
-      flexWrap='wrap'
+      display="flex"
+      flexWrap="wrap"
       flexDirection="column"
       justifyContent="space-between"
       backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
       backgroundPosition="bottom right"
     >
+      {/*
+        [SOLID]
+        S = Single Responsability
+        O = Open Closed
+        L = Liskov Substitution
+        I = Interface Segregation
+        D = Dependency Inversion
+      */}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => {
+          setIsModalOpen(false)
+        }}
+      >
+        {propsDoModal => (
+          <Box
+            backgroundColor="white"
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...propsDoModal}
+          >
+            <div>Nosso conteúdo pro modal</div>
+          </Box>
+        )}
+      </Modal>
       <Menu />
 
       <Grid.Container
@@ -28,13 +57,12 @@ const Home = () => {
         <Grid.Row>
           <Grid.Col
             offset={{ xs: 0, md: 1 }}
-            value={{ xs: 12, md: 5}}
+            value={{ xs: 12, md: 5 }}
             display="flex"
             alignItems="flex-start"
             justifyContent="center"
             flexDirection="column"
           >
-
             <Text
               variant="title"
               tag="h1"
@@ -56,7 +84,10 @@ const Home = () => {
                 md: 'left'
               }}
             >
-              Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Per aumento de cachacis, eu reclamis. Paisis, filhis, espiritis santis. Cevadis im ampola pa arma uma pindureta.
+              Mussum Ipsum, cacilds vidis litro abertis. Admodum accumsan
+              disputationi eu sit. Vide electram sadipscing et per. Per aumento
+              de cachacis, eu reclamis. Paisis, filhis, espiritis santis.
+              Cevadis im ampola pa arma uma pindureta.
             </Text>
 
             <Button
@@ -66,20 +97,21 @@ const Home = () => {
                 md: 'initial'
               }}
               display="block"
+              onClick={() => {
+                setIsModalOpen(true)
+              }}
             >
               Cadastrar
             </Button>
-
           </Grid.Col>
-          <Grid.Col
-            value={{ xs: 12, md: 6}}
-          >
-            <img src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png" alt="Phones"/>
+          <Grid.Col value={{ xs: 12, md: 6 }}>
+            <img
+              src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
+              alt="Phones"
+            />
           </Grid.Col>
         </Grid.Row>
       </Grid.Container>
-
-
 
       <Footer />
     </Box>
