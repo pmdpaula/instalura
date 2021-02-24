@@ -1,42 +1,42 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true,
-    "jest": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "standard",
-    // "plugin:@typescript-eslint/recommended", // TypeScript rules
-    "prettier/eslint", // Prettier plugin
-    "prettier/standard", // Prettier plugin
-    "prettier/react"
-    
-  ],
-  // "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es2020": true,
+        "node": true
     },
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "eslint",
-    "prettier"
-  ],
-  "rules": {
-    // "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
-    
-    // We will use TypeScript's types for component props instead
-    "react/prop-types": "off",
-    
-    // No need to import React when using Next.js
-    "react/react-in-jsx-scope": "off",
-    
-    "prettier/prettier": ["error"],
-    "space-before-function-paren": "off"
-  }
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:prettier/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "simple-import-sort"
+    ],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+      "import/prefer-default-export": "off",
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "import/newline-after-import": "error",
+      "import/no-duplicates": "error"
+    },
+    "overrides": [
+      {
+        "files": "server/**/*.js",
+        "rules": {
+          "simple-import-sort/imports": "off",
+          "import/order": ["error", { "newlines-between": "always" }]
+        }
+      }
+    ]
 }
