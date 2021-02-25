@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import { PropTypes } from 'prop-types'
-import styled, { css } from 'styled-components'
+import PropTypes from 'prop-types'
+import React from 'react'
+import styled, { createGlobalStyle, css } from 'styled-components'
 
 const ModalWrapper = styled.div`
   display: flex;
@@ -14,9 +15,8 @@ const ModalWrapper = styled.div`
   bottom: 0;
   margin: auto;
   overflow: scroll;
-  z-index: 1000;
-  transition: 0.9s;
-
+  transition: 0.3s;
+  z-index: 100;
   ${({ isOpen }) => {
     if (isOpen) {
       return css`
@@ -31,7 +31,13 @@ const ModalWrapper = styled.div`
   }}
 `
 
-const Modal = ({ isOpen, onClose, children }) => {
+const LockScroll = createGlobalStyle`
+  body {
+    overflow: hidden;
+  }
+`
+
+function Modal({ isOpen, onClose, children }) {
   return (
     <ModalWrapper
       isOpen={isOpen}
@@ -43,13 +49,15 @@ const Modal = ({ isOpen, onClose, children }) => {
         }
       }}
     >
+      {isOpen && <LockScroll />}
+
       <motion.div
         variants={{
           open: {
             x: 0
           },
           closed: {
-            x: '-100%'
+            x: '100%'
           }
         }}
         animate={isOpen ? 'open' : 'closed'}
