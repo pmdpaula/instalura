@@ -3,7 +3,7 @@ import { css } from 'styled-components';
 import { breakpointsMedia } from './breakpointsMedia';
 
 export function propToStyle(propName) {
-  return props => {
+  return (props) => {
     const propValue = props[propName];
 
     if (typeof propValue === 'object') {
@@ -22,7 +22,7 @@ export function propToStyle(propName) {
             lg: { [propName]: propValue.lg },
           }),
           ...(propValue.xl && {
-            xl: { [propName]: propValue.xl },
+            xl: { [propName]: propValue.xl }
           }),
         })}
       `;
