@@ -23,7 +23,7 @@ export function propToStyle(propName) {
           }),
           ...(propValue.xl && {
             xl: { [propName]: propValue.xl }
-          }),
+          })
         })}
       `;
     }
