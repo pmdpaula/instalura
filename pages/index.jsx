@@ -15,7 +15,7 @@ export default function Home() {
       flex="1"
       display="flex"
       flexWrap="wrap"
-      flexDirection="column"0
+      flexDirection="column"
       justifyContent="space-between"
       backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
