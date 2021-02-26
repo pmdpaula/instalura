@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components';
 
-import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia'
-import { propToStyle } from '../../../../theme/utils/propToStyle'
+import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
+import { propToStyle } from '../../../../theme/utils/propToStyle';
 
 const Container = styled.div`
   width: 100%;
@@ -24,10 +24,10 @@ const Container = styled.div`
     `,
     xl: css`
       max-width: 1222px;
-    `
+    `,
   })}
   ${propToStyle('marginTop')}
-`
+`;
 
 export const Grid = {
   Container,
@@ -54,7 +54,7 @@ export const Grid = {
           flex-shrink: 0;
           flex-basis: ${(100 * value) / 12}%;
           max-width: ${(100 * value) / 12}%;
-        `
+        `;
       }
       return breakpointsMedia({
         xs: value?.xs
@@ -96,14 +96,14 @@ export const Grid = {
               flex-basis: ${(100 * value.xl) / 12}%;
               max-width: ${(100 * value.xl) / 12}%;
             `
-          : ''
-      })
+          : '',
+      });
     }}
     ${({ offset }) => {
       if (typeof offset === 'number') {
         return css`
           margin-left: ${(100 * offset) / 12}%;
-        `
+        `;
       }
       return breakpointsMedia({
         xs: offset?.xs
@@ -130,13 +130,13 @@ export const Grid = {
           ? css`
               margin-left: ${(100 * offset.xl) / 12}%;
             `
-          : ''
-      })
+          : '',
+      });
     }}
     ${propToStyle('display')}
     ${propToStyle('alignItems')}
     ${propToStyle('justifyContent')}
     ${propToStyle('flexDirection')}
     ${propToStyle('paddingRight')}
-  `
-}
+  `,
+};

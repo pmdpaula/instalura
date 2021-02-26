@@ -1,9 +1,9 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
-import { breakpoints } from '../index'
+import { breakpoints } from '../index';
 
 export const breakpointsMedia = cssByBreakpoint => {
-  const breakpointNames = Object.keys(breakpoints)
+  const breakpointNames = Object.keys(breakpoints);
 
   return breakpointNames
     .filter(breakpointName => Boolean(cssByBreakpoint[breakpointName]))
@@ -13,5 +13,5 @@ export const breakpointsMedia = cssByBreakpoint => {
           ${cssByBreakpoint[breakpointName]}
         }
       `
-    )
-}
+    );
+};

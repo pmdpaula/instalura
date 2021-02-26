@@ -1,79 +1,80 @@
-import { Lottie } from '@crello/react-lottie'
+import { Lottie } from '@crello/react-lottie';
+import { useState } from 'react';
 
-import { Button } from '../../commons/Button'
-import TextField from '../../forms/TextFields'
-import { Box } from '../../foundation/layout/Box'
-import { Grid } from '../../foundation/layout/Grid'
-import Text from '../../foundation/Text'
-import errorAnimation from './animations/error.json'
-import successAnimation from './animations/success.json'
+import { Button } from '../../commons/Button';
+import TextField from '../../forms/TextFields';
+import { Box } from '../../foundation/layout/Box';
+import { Grid } from '../../foundation/layout/Grid';
+import Text from '../../foundation/Text';
+import errorAnimation from './animations/error.json';
+import successAnimation from './animations/success.json';
 
 const formStates = {
   DEFAULT: 'DEFAULT',
   LOADING: 'LOADING',
   DONE: 'DONE',
-  ERROR: 'ERROR'
-}
+  ERROR: 'ERROR',
+};
 
 function FormContent() {
-  const [isFormSubmited, setIsFormSubmited] = React.useState(false)
+  const [isFormSubmited, setIsFormSubmited] = useState(false);
   const [submissionStatus, setSubmissionStatus] = React.useState(
-    formStates.DEFAULT
-  )
+    formStates.DEFAULT,
+  );
 
   const [userInfo, setUserInfo] = React.useState({
     usuario: 'omariosouto1002',
-    nome: 'Mario Souto'
-  })
+    nome: 'Mario Souto',
+  });
 
   function handleChange(event) {
-    const fieldName = event.target.getAttribute('name')
+    const fieldName = event.target.getAttribute('name');
     setUserInfo({
       ...userInfo,
-      [fieldName]: event.target.value
-    })
+      [fieldName]: event.target.value,
+    });
   }
 
   const isFormInvalid =
-    userInfo.usuario.length === 0 || userInfo.nome.length === 0
+    userInfo.usuario.length === 0 || userInfo.nome.length === 0;
 
   return (
     <form
-      onSubmit={event => {
-        event.preventDefault()
+      onSubmit={(event) => {
+        event.preventDefault();
 
-        setIsFormSubmited(true)
+        setIsFormSubmited(true);
 
         // Data Transfer Object
         const userDTO = {
           username: userInfo.usuario,
-          name: userInfo.nome
-        }
+          name: userInfo.nome,
+        };
 
         fetch('https://instalura-api.vercel.app/api/users', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
           },
-          body: JSON.stringify(userDTO)
+          body: JSON.stringify(userDTO),
         })
-          .then(respostaDoServidor => {
+          .then((respostaDoServidor) => {
             if (respostaDoServidor.ok) {
-              return respostaDoServidor.json()
+              return respostaDoServidor.json();
             }
 
-            throw new Error('Não foi possível cadastrar o usuário agora :(')
+            throw new Error('Não foi possível cadastrar o usuário agora :(');
           })
-          .then(respostaConvertidaEmObjeto => {
-            setSubmissionStatus(formStates.DONE)
+          .then((respostaConvertidaEmObjeto) => {
+            setSubmissionStatus(formStates.DONE);
             // eslint-disable-next-line no-console
-            console.log(respostaConvertidaEmObjeto)
+            console.log(respostaConvertidaEmObjeto);
           })
-          .catch(error => {
-            setSubmissionStatus(formStates.ERROR)
+          .catch((error) => {
+            setSubmissionStatus(formStates.ERROR);
             // eslint-disable-next-line no-console
-            console.error(error)
-          })
+            console.error(error);
+          });
       }}
     >
       <Text variant="title" tag="h1" color="tertiary.main">
@@ -124,7 +125,7 @@ function FormContent() {
             config={{
               animationData: successAnimation,
               loop: true,
-              autoplay: true
+              autoplay: true,
             }}
           />
           {/* https://lottiefiles.com/43920-success-alert-icon */}
@@ -139,14 +140,14 @@ function FormContent() {
             config={{
               animationData: errorAnimation,
               loop: true,
-              autoplay: true
+              autoplay: true,
             }}
           />
           {/* https://lottiefiles.com/43920-success-alert-icon */}
         </Box>
       )}
     </form>
-  )
+  );
 }
 
 // eslint-disable-next-line react/prop-types
@@ -167,7 +168,7 @@ export default function FormCadastro({ propsDoModal }) {
           flex={1}
           padding={{
             xs: '16px',
-            md: '85px'
+            md: '85px',
           }}
           backgroundColor="white"
           // eslint-disable-next-line react/jsx-props-no-spreading
@@ -177,5 +178,5 @@ export default function FormCadastro({ propsDoModal }) {
         </Box>
       </Grid.Col>
     </Grid.Row>
-  )
+  );
 }

@@ -1,14 +1,16 @@
-import { Button } from '../src/components/commons/Button'
-import Footer from '../src/components/commons/Footer'
-import Menu from '../src/components/commons/Menu'
-import Modal from '../src/components/commons/Modal'
-import { Box } from '../src/components/foundation/layout/Box'
-import { Grid } from '../src/components/foundation/layout/Grid'
-import Text from '../src/components/foundation/Text'
-import FormCadastro from '../src/components/patterns/FormCadastro'
+import { useState } from 'react';
+
+import { Button } from '../src/components/commons/Button';
+import Footer from '../src/components/commons/Footer';
+import Menu from '../src/components/commons/Menu';
+import Modal from '../src/components/commons/Modal';
+import { Box } from '../src/components/foundation/layout/Box';
+import { Grid } from '../src/components/foundation/layout/Grid';
+import Text from '../src/components/foundation/Text';
+import FormCadastro from '../src/components/patterns/FormCadastro';
 
 export default function Home() {
-  const [isModalOpen, setModalState] = useState(false)
+  const [isModalOpen, setModalState] = useState(false);
 
   return (
     <Box
@@ -33,10 +35,10 @@ export default function Home() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => {
-          setModalState(false)
+          setModalState(false);
         }}
       >
-        {propsDoModal => <FormCadastro propsDoModal={propsDoModal} />}
+        {(propsDoModal) => <FormCadastro propsDoModal={propsDoModal} />}
       </Modal>
 
       <Menu />
@@ -44,7 +46,7 @@ export default function Home() {
       <Grid.Container
         marginTop={{
           xs: '32px',
-          md: '75px'
+          md: '75px',
         }}
       >
         <Grid.Row>
@@ -63,7 +65,7 @@ export default function Home() {
               // textAlign="right"
               textAlign={{
                 xs: 'center',
-                md: 'left'
+                md: 'left',
               }}
             >
               Compartilhe momentos e conecte-se com amigos
@@ -74,7 +76,7 @@ export default function Home() {
               color="tertiary.light"
               textAlign={{
                 xs: 'center',
-                md: 'left'
+                md: 'left',
               }}
             >
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -85,14 +87,14 @@ export default function Home() {
             <Button
               margin={{
                 xs: 'auto',
-                md: 'initial'
+                md: 'initial',
               }}
               display="block"
               variant="primary.main"
               onClick={() => {
                 // isModalOpen = true;
-                console.log('isModalOpen', isModalOpen)
-                setModalState(!isModalOpen) // novo state sendo atribuido
+                console.log('isModalOpen', isModalOpen);
+                setModalState(!isModalOpen); // novo state sendo atribuido
               }}
             >
               Cadastrar
@@ -101,7 +103,7 @@ export default function Home() {
           <Grid.Col
             value={{
               xs: 12,
-              md: 6
+              md: 6,
             }}
           >
             <img
@@ -115,5 +117,5 @@ export default function Home() {
 
       <Footer />
     </Box>
-  )
+  );
 }

@@ -33,5 +33,7 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Github actions
+/.github/
 
 script-test.js
