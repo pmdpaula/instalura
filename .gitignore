@@ -36,4 +36,7 @@ yarn-error.log*
 # Github actions
 /.github/
 
+# husky v5
+/.husky/
+
 script-test.js
