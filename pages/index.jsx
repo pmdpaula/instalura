@@ -8,14 +8,14 @@ import Text from '../src/components/foundation/Text'
 import FormCadastro from '../src/components/patterns/FormCadastro'
 
 export default function Home() {
-  const [isModalOpen, setModalState] = React.useState(false)
+  const [isModalOpen, setModalState] = useState(false)
 
   return (
     <Box
       flex="1"
       display="flex"
       flexWrap="wrap"
-      flexDirection="column"
+      flexDirection="column"0
       justifyContent="space-between"
       backgroundImage="url(/images/bubbles.svg)"
       backgroundRepeat="no-repeat"
