@@ -22,8 +22,8 @@ export function propToStyle(propName) {
             lg: { [propName]: propValue.lg },
           }),
           ...(propValue.xl && {
-            xl: { [propName]: propValue.xl }
-          })
+            xl: { [propName]: propValue.xl },
+          }),
         })}
       `;
     }
