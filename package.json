@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "custom-script": "node ./script-test.js"
+    "custom-script": "node ./script-test.js",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
@@ -42,7 +43,7 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
+      "pre-push": "pretty-quick --staged && yarn lint"
     }
   }
 }

@@ -1,5 +1,4 @@
 import { Lottie } from '@crello/react-lottie'
-import React from 'react'
 
 import { Button } from '../../commons/Button'
 import TextField from '../../forms/TextFields'
