@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Sobre = () => {
-  return <div>Oi, sou Pedro</div>
-}
+  return <div>Oi, sou Pedro</div>;
+};
 
-export default Sobre
+export default Sobre;
