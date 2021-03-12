@@ -18,11 +18,9 @@ const formStates = {
 
 function FormContent() {
   const [isFormSubmited, setIsFormSubmited] = useState(false);
-  const [submissionStatus, setSubmissionStatus] = React.useState(
-    formStates.DEFAULT,
-  );
+  const [submissionStatus, setSubmissionStatus] = useState(formStates.DEFAULT);
 
-  const [userInfo, setUserInfo] = React.useState({
+  const [userInfo, setUserInfo] = useState({
     usuario: 'omariosouto1002',
     nome: 'Mario Souto',
   });

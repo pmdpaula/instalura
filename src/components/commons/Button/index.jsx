@@ -1,23 +1,26 @@
-import get from 'lodash/get'
-import styled, { css } from 'styled-components'
+import get from 'lodash/get';
+import PropTypes from 'prop-types';
+import React from 'react';
+import styled, { css } from 'styled-components';
 
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia'
-import { propToStyle } from '../../../theme/utils/propToStyle'
-import { TextStyleVariantsMap } from '../../foundation/Text'
+import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import { propToStyle } from '../../../theme/utils/propToStyle';
+import { TextStyleVariantsMap } from '../../foundation/Text';
+import { Link } from '../Link';
 
 const ButtonGhost = css`
-  color: ${props => get(props.theme, `colors.${props.variant}.color`)};
+  color: ${(props) => get(props.theme, `colors.${props.variant}.color`)};
   background: transparent;
-`
+`;
 
 const ButtonDefault = css`
   color: white;
-  background-color: ${props =>
+  background-color: ${(props) =>
     get(props.theme, `colors.${props.variant}.color`)};
-  color: ${props => get(props.theme, `colors.${props.variant}.contrastText`)};
-`
+  color: ${(props) => get(props.theme, `colors.${props.variant}.contrastText`)};
+`;
 
-export const Button = styled.button`
+const ButtonWrapper = styled.button`
   border: 0;
   cursor: pointer;
   padding: 12px 26px;
@@ -25,14 +28,14 @@ export const Button = styled.button`
   opacity: 1;
   border-radius: 8px;
   ${TextStyleVariantsMap.smallestException}
-  ${props => {
+  ${(props) => {
     if (props.ghost) {
-      return ButtonGhost
+      return ButtonGhost;
     }
-    return ButtonDefault
+    return ButtonDefault;
   }}
   transition: opacity ${({ theme }) => theme.transition};
-  border-radius: ${props => props.theme.borderRadius};
+  border-radius: ${(props) => props.theme.borderRadius};
   &:hover,
   &:focus {
     opacity: 0.5;
@@ -45,7 +48,7 @@ export const Button = styled.button`
     md: css`
       /* From md breakpoint */
       ${TextStyleVariantsMap.paragraph1}
-    `
+    `,
   })}
   &:disabled {
     cursor: not-allowed;
@@ -58,4 +61,22 @@ export const Button = styled.button`
     `};
   ${propToStyle('margin')}
   ${propToStyle('display')}
-`
+`;
+
+export const Button = ({ href, ...props }) => {
+  const isLink = Boolean(href);
+  const componentTag = isLink ? Link : 'button';
+
+  return (
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    <ButtonWrapper as={componentTag} href={href} {...props} />
+  );
+};
+
+Button.defaultProps = {
+  href: undefined,
+};
+
+Button.propTypes = {
+  href: PropTypes.string,
+};
