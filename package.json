@@ -6,9 +6,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js .",
-    "commit": "cz",
     "custom-script": "node ./script-test.js",
     "postinstall": "husky install",
+    "commit": "cz"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
