@@ -25,6 +25,7 @@
       "react/react-in-jsx-scope": "off",
       // "indent": ["error", 2],
       // "indent": ["error", 2, { "offsetTernaryExpressions": false }],
+      "react/jsx-filename-extension": ["warn",{ "extensions": [".js", ".jsx"] }],
       "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
       "import/prefer-default-export": "off",
       "simple-import-sort/imports": "error",
