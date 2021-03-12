@@ -8,7 +8,7 @@
     "lint": "eslint --ignore-path .gitignore --ext .jsx --ext .js .",
     "commit": "cz",
     "custom-script": "node ./script-test.js",
-    "postinstall": "husky install",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@crello/react-lottie": "^0.0.11",
