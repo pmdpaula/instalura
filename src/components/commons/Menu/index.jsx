@@ -1,4 +1,5 @@
-import { PropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Logo } from '../../../theme/Logo';
 import Text from '../../foundation/Text';
@@ -29,6 +30,11 @@ export default function Menu({ onCadastrarClick }) {
       <MenuWrapper.CentralSide>
         {links.map((link) => (
           <li key={link.url}>
+            {/* <NextLink href={link.url}>
+              <a>
+                {link.texto}
+              </a>
+            </NextLink> */}
             <Text variant="smallestException" tag="a" href={link.url}>
               {link.texto}
             </Text>
