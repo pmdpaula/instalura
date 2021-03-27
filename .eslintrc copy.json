@@ -3,7 +3,8 @@
         "browser": true,
         "es2020": true,
         "node": true,
-        "cypress/globals": true
+        "cypress/globals": true,
+        "jest/globals": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -11,6 +12,20 @@
         "plugin:prettier/recommended",
         "plugin:cypress/recommended",
         "plugin:chai-friendly/recommended"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.test.js"
+        ],
+        "plugins": ["jest"],
+        "env": {
+          "jest": true
+        },
+        // eslint-disable-next-line global-require, import/no-extraneous-dependencies
+        // "...require('eslint-plugin-jest').configs.recommended"
+        "processor": "eslint-plugin-jest"
+      }
     ],
     "parserOptions": {
         "ecmaFeatures": {

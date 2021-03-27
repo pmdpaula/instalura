@@ -9,6 +9,7 @@ import { WebsitePageContext } from '../../src/components/wrappers/WebsitePage';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 import { Logo } from '../../src/theme/Logo';
 
+// Essa página e desafio, e vamos dar pronto no próximo módulo o 04
 function LoginScreen() {
   const websitePageContext = React.useContext(WebsitePageContext);
 
@@ -58,7 +59,7 @@ function LoginScreen() {
         <Grid.Col value={{ xs: 12, md: 6 }}>
           <Box display="flex" justifyContent="center">
             <img
-              align="center"
+              align="middle"
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
               alt="Telefones mostrando as páginas internas do app"
             />
