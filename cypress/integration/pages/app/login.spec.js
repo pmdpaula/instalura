@@ -7,7 +7,7 @@ describe('/pages/app/login/', () => {
     it('go to the profile page', () => {
       // Pré Teste
       cy.intercept(
-        'https://instalura-api-git-master.omariosouto.vercel.app',
+        'https://instalura-api-git-master-omariosouto.vercel.app',
       ).as('userLogin');
 
       // Cenário
