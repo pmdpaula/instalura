@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Text from '../../foundation/Text';
 
@@ -10,27 +10,41 @@ const InputWrapper = styled.div`
 
 const Input = styled(Text)`
   width: 100%;
-  border: 1px solid
+  border: 1px solid ${({ theme }) => theme.colors.tertiary.light.color};
+  /* border: 1px solid
     ${(props) =>
-      props.isFieldInvalid
-        ? ({ theme }) => theme.colors.error.main.color
-        : ({ theme }) => theme.colors.tertiary.light.color};
-  /* border: 1px */
+    props.isFieldInvalid
+      ? ({ theme }) => theme.colors.error.main.color
+      : ({ theme }) => theme.colors.tertiary.light.color}; */
   padding: 12px 16px;
   outline: 0;
   border-radius: ${({ theme }) => theme.borderRadius};
-  box-shadow: inset 0px 0px 10px -5px ${(props) => (props.isFieldInvalid ? ({ theme }) => theme.colors.error.main.color : ({ theme }) => theme.colors.tertiary.light.color)};
-  background: inset 0px 0px 10px -5px ${(props) => (props.isFieldInvalid ? ({ theme }) => theme.colors.error.main.color : ({ theme }) => theme.colors.tertiary.light.color)};
-  background: linear-gradient(
-    90deg,
-    #ffffff 0%,
-    #ffffff 95%,
-    ${(props) =>
-        props.isFieldInvalid
-          ? ({ theme }) => theme.colors.error.main.color
-          : '#fff'}
-      100%
-  );
+  transition: 1s;
+
+  ${({ theme, isFieldInvalid }) =>
+    isFieldInvalid &&
+    css`
+      border-color: ${theme.colors.error.main.color};
+      & + span {
+        color: ${theme.colors.error.main.color};
+        font-size: 11px;
+      }
+      background: linear-gradient(
+        90deg,
+        #ffffff 0%,
+        #ffffff 95%,
+        ${theme.colors.error.main.color} 100%
+      );
+    `}/* box-shadow: inset 0px 0px 10px -5px ${(props) =>
+    props.isFieldInvalid
+      ? ({ theme }) => theme.colors.error.main.color
+      : ({ theme }) => theme.colors.tertiary.light.color};
+
+  background: inset 0px 0px 10px -5px ${(props) =>
+    props.isFieldInvalid
+      ? ({ theme }) => theme.colors.error.main.color
+      : ({ theme }) => theme.colors.tertiary.light.color};
+*/
 `;
 
 Input.defaultProps = {

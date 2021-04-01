@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextField /> renders component 1`] = `
+.c0 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.c1 {
+  width: 100%;
+  border: 1px solid #88989E;
+  padding: 12px 16px;
+  outline: 0;
+  border-radius: 12px;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+<input
+  class="c0 c1"
+  name="nome"
+  placeholder="Nome"
+  type="text"
+  value="Ju"
+/>
+`;
+
+exports[`<TextField /> when field is invalid displays the respective error message 1`] = `
+.c0 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.c1 {
+  width: 100%;
+  border: 1px solid #88989E;
+  padding: 12px 16px;
+  outline: 0;
+  border-radius: 12px;
+  -webkit-transition: 1s;
+  transition: 1s;
+  border-color: #dc3545;
+  background: linear-gradient( 90deg,#ffffff 0%,#ffffff 95%,#dc3545 100% );
+}
+
+.c1 + span {
+  color: #dc3545;
+  font-size: 11px;
+}
+
+<input
+  class="c0 c1"
+  name="email"
+  placeholder="Email"
+  type="text"
+  value="devsoutinhogmail.com"
+/>
+`;
