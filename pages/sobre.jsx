@@ -4,7 +4,7 @@ import AboutScreen from '../src/components/screens/AboutScreen';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 export async function getStaticProps() {
-  const TOKEN = '7af2c5f35dca936b70104d21f8060f';
+  const TOKEN = process.env.DATO_CMS_TOKEN;
   const DatoCMSURL = 'https://graphql.datocms.com/';
 
   const client = new GraphQLClient(DatoCMSURL, {
