@@ -3,14 +3,6 @@ import { destroyCookie, setCookie } from 'nookies';
 import { isStagingEnv } from '../../infra/env/isStagingEnv';
 
 async function HttpClient(url, { headers, body, ...options }) {
-  console.log(url, {
-    headers: {
-      ...headers,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(body),
-    ...options,
-  });
   return fetch(url, {
     headers: {
       ...headers,
