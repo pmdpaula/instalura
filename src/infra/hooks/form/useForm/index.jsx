@@ -31,6 +31,7 @@ export function useForm({ initialValues, onSubmit, validateSchema }) {
 
   React.useEffect(() => {
     validateValues(values).catch((err) => {
+      // eslint-disable-next-line no-console
       console.log(err);
     });
   }, [values]);
