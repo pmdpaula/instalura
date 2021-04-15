@@ -40,6 +40,7 @@ export default function LoginForm({ onSubmit }) {
         })
         .catch((err) => {
           // Desafio: Mostrar o erro na tela
+          // eslint-disable-next-line no-console
           console.error(err);
         })
         .finally(() => {
