@@ -59,7 +59,7 @@ function LoginScreen() {
         <Grid.Col value={{ xs: 12, md: 6 }}>
           <Box display="flex" justifyContent="center">
             <img
-              align="middle"
+              align="center"
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
               alt="Telefones mostrando as páginas internas do app"
             />
